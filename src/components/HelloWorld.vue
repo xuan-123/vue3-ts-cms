@@ -107,7 +107,8 @@ export default defineComponent({
   data() {
     return {
       msgs: '234',
-      add: 'xuan'
+      add: 'xuan',
+      sum: 23
     }
   }
 })
