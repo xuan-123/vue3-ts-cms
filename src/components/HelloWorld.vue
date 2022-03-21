@@ -106,7 +106,8 @@ export default defineComponent({
   },
   data() {
     return {
-      msgs: '234'
+      msgs: '234',
+      add: 'xuan'
     }
   }
 })
