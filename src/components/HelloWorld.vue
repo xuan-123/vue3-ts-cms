@@ -1,3 +1,4 @@
+/* eslint-disable vue/no-dupe-keys */
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
@@ -100,14 +101,13 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'HelloWorld',
 
-
-
   props: {
-    msg: String ;
-    
+    msg: String
   },
   data() {
-    return {}
+    return {
+      msgs: '234'
+    }
   }
 })
 </script>
