@@ -35,6 +35,7 @@ import { defineComponent, ref } from 'vue'
 import { Calendar, Iphone } from '@element-plus/icons-vue'
 import LoginAccount from './login-account.vue'
 import LoginPhone from './login-phone.vue'
+
 export default defineComponent({
   components: {
     Calendar,
@@ -52,8 +53,8 @@ export default defineComponent({
     const handleLoginClick = () => {
       console.log('登录分支')
       //在父组件中调用子组件（账号登录）方法
-      accountRef.value?.accountLogin()
-      phoneRef.value?.phoneLogin()
+      accountRef.value?.accountLogin(isKeepPassword.value)
+      // phoneRef.value?.phoneLogin()
     }
     return {
       isKeepPassword,
