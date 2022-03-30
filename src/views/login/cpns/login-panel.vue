@@ -50,6 +50,7 @@ export default defineComponent({
     const accountRef = ref<InstanceType<typeof LoginAccount>>() //取当前组件的类型
     const phoneRef = ref<InstanceType<typeof LoginPhone>>() //取当前组件的类型
     const handleLoginClick = () => {
+      console.log('登录分支')
       //在父组件中调用子组件（账号登录）方法
       accountRef.value?.accountLogin()
       phoneRef.value?.phoneLogin()
