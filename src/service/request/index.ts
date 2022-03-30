@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios'
+import axios from 'axios'
 import type { AxiosInstance, AxiosRequestConfig } from 'axios'
 //定义一个自己的关于拦截器的接口用于补充到axios内部AxiosRequestConfig类内部
 interface HYRequestInterceptors {
