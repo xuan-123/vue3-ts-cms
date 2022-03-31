@@ -17,17 +17,21 @@
 <script>
 import { rules } from '../config/phone-config'
 import { defineComponent, reactive, ref } from 'vue'
+import LocalCache from '@/utils/cache'
 export default defineComponent({
   setup() {
     const phone = reactive({
-      tel: '',
+      tel: LocalCache.getCache('tel') ?? '',
       vCode: ''
     })
     const formRef = ref()
-    const phoneLogin = () => {
+    const phoneLogin = (isKeepPassword) => {
       formRef.value.validate((valid) => {
         if (valid) {
-          console.log('手机号登录')
+          if (isKeepPassword) {
+            //手机号保存到本地
+            LocalCache.setCache('tel', phone.tel)
+          }
         }
       })
     }

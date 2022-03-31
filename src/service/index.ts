@@ -14,15 +14,12 @@ const hyRequest = new HYRequest({
      */
 
     requestInterceptor: (res) => {
-      console.log('请求拦截')
       return res
     },
     requestInterceptorCatch: (err) => {
-      console.log('请求失败拦截')
       return err
     },
     responseInterceptor: (res) => {
-      console.log('响应拦截')
       return res
     },
     responseInterceptorCatch: (err) => {

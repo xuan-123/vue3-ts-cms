@@ -30,11 +30,9 @@ class HYRequest {
       this.interceptors?.responseInterceptorCatch
     )
     this.instance.interceptors.request.use((config) => {
-      console.log('全局请求')
       return config
     })
     this.instance.interceptors.response.use((res) => {
-      console.log('全局响应')
       const data = res.data //过滤响应数据中data中的数据
       return data
     })

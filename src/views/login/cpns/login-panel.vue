@@ -1,8 +1,8 @@
 /* eslint-disable vue/no-unused-components */
 <template>
   <div class="login-panel">
-    <el-tabs type="border-card" class="demo-tabs" stretch>
-      <el-tab-pane>
+    <el-tabs type="border-card" class="demo-tabs" v-model="checkTab" stretch>
+      <el-tab-pane name="account">
         <template #label>
           <span class="custom-tabs-label">
             <el-icon><Calendar /></el-icon>
@@ -11,7 +11,7 @@
         </template>
         <login-account ref="accountRef" />
       </el-tab-pane>
-      <el-tab-pane label="手机登录">
+      <el-tab-pane label="手机登录" name="phone">
         <template #label>
           <span class="custom-tabs-label">
             <el-icon><Iphone /></el-icon>
@@ -47,20 +47,25 @@ export default defineComponent({
     LoginPhone
   },
   setup() {
+    let checkTab = ref('account')
     let isKeepPassword = ref(true)
     const accountRef = ref<InstanceType<typeof LoginAccount>>() //取当前组件的类型
     const phoneRef = ref<InstanceType<typeof LoginPhone>>() //取当前组件的类型
     const handleLoginClick = () => {
-      console.log('登录分支')
       //在父组件中调用子组件（账号登录）方法
-      accountRef.value?.accountLogin(isKeepPassword.value)
-      // phoneRef.value?.phoneLogin()
+      //如果当前选中的是账号登录
+      if (checkTab.value === 'account') {
+        accountRef.value?.accountLogin(isKeepPassword.value)
+      } else {
+        phoneRef.value?.phoneLogin(isKeepPassword.value)
+      }
     }
     return {
       isKeepPassword,
       accountRef,
       phoneRef,
-      handleLoginClick
+      handleLoginClick,
+      checkTab
     }
   }
 })
