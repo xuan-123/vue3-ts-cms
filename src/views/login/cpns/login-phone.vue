@@ -17,9 +17,11 @@
 <script>
 import { rules } from '../config/phone-config'
 import { defineComponent, reactive, ref } from 'vue'
+import { useStore } from 'vuex'
 import LocalCache from '@/utils/cache'
 export default defineComponent({
   setup() {
+    const store = useStore()
     const phone = reactive({
       tel: LocalCache.getCache('tel') ?? '',
       vCode: ''
@@ -31,6 +33,7 @@ export default defineComponent({
           if (isKeepPassword) {
             //手机号保存到本地
             LocalCache.setCache('tel', phone.tel)
+            store.dispatch('login/phoneLoginAction', { ...phone })
           }
         }
       })
