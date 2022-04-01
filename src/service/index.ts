@@ -1,6 +1,6 @@
 import HYRequest from './request/index'
 import { BASE_URL, TIME_OUT } from './request/config'
-
+import LocalCache from '@/utils/cache'
 const hyRequest = new HYRequest({
   baseURL: BASE_URL,
   timeout: TIME_OUT,
@@ -13,7 +13,12 @@ const hyRequest = new HYRequest({
       给axios的interceptors.request.use用的
      */
 
-    requestInterceptor: (res) => {
+    requestInterceptor: (res: any) => {
+      //携带token拦截
+      const token = LocalCache.getCache('token')
+      if (token) {
+        res.headers.Authorization = `Bearer ${token}`
+      }
       return res
     },
     requestInterceptorCatch: (err) => {

@@ -60,10 +60,10 @@ class HYRequest {
         })
     })
   }
-  get<T>(config: HYRequestConfig): Promise<T> {
+  get<T = any>(config: HYRequestConfig): Promise<T> {
     return this.request<T>({ ...config, method: 'GET' })
   }
-  post<T>(config: HYRequestConfig): Promise<T> {
+  post<T = any>(config: HYRequestConfig): Promise<T> {
     return this.request<T>({ ...config, method: 'POST' })
   }
 }
