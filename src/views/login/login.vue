@@ -27,7 +27,4 @@ export default defineComponent({
   height: 100%;
   background: url('../../assets/img/login-bg.svg');
 }
-.page {
-  background-color: #ccc;
-}
 </style>
