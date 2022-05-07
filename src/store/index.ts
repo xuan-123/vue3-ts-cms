@@ -15,6 +15,7 @@ const store = createStore<IRootState>({
     login
   }
 })
+//
 export function setupStore() {
   store.dispatch('login/loadLocalLogin')
 }

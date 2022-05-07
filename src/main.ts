@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import { globalApp } from './global/index'
+
 import 'normalize.css'
 import './assets/css/index.less'
 // import '@element-plus/icons-vue'
