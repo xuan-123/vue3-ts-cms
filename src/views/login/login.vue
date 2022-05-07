@@ -30,7 +30,4 @@ export default defineComponent({
 .page {
   background-color: #ccc;
 }
-.new {
-  color: red;
-}
 </style>
