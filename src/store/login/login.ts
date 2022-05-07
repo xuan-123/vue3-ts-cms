@@ -72,7 +72,7 @@ const loginModule: Module<ILoginState, IRootState> = {
         commit('getUserMenu', usermenus)
       }
     },
-    phoneLoginAction({ commit }, payload: any) {
+    phoneLoginAction(payload: any) {
       console.log(payload)
     }
   }
